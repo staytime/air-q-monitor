@@ -3,7 +3,7 @@
 
 
 import logging
-from systemd.journal import JournalHandler
+#from systemd.journal import JournalHandler
 from prometheus_client import Gauge, start_http_server
 from datetime import datetime
 import time
@@ -19,7 +19,7 @@ READ_INTERVAL = 10
 
 # Setup logging to the Systemd Journal
 log = logging.getLogger('airq sensor')
-log.addHandler(JournalHandler())
+#log.addHandler(JournalHandler())
 log.setLevel(logging.INFO)
 
 
