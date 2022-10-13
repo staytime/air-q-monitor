@@ -3,13 +3,14 @@
 
 
 import logging
-#from systemd.journal import JournalHandler
+from systemd.journal import JournalHandler
 from prometheus_client import Gauge, start_http_server
 from datetime import datetime
 import time
 from bluepy.btle import Scanner, DefaultDelegate
 from bluepy import btle
 import argparse
+import sys
 
 
 
@@ -19,7 +20,12 @@ READ_INTERVAL = 10
 
 # Setup logging to the Systemd Journal
 log = logging.getLogger('airq sensor')
-#log.addHandler(JournalHandler())
+log.addHandler(JournalHandler())
+
+# handler = logging.StreamHandler(sys.stdout)
+# handler.setLevel(logging.DEBUG)
+# log.addHandler(handler)
+
 log.setLevel(logging.INFO)
 
 
@@ -97,6 +103,7 @@ def reading_sensor(dev_mac):
 
     for retry in range(3):
         isd = None
+        p = None
         try:
             p = btle.Peripheral(dev_mac)
             data = p.readCharacteristic(72)
@@ -122,6 +129,7 @@ def reading_sensor(dev_mac):
             metrices_humidity.set(isd.humidity)
             metrices_ccs811_baseline.set(isd.baseline)
 
+            p.disconnect()
             time.sleep(READ_INTERVAL)
             break
 
