@@ -1,0 +1,13 @@
+# /etc/systemd/system/sensors-host.service
+[Unit]
+Description=Air quility metrices publisher
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=python3 /opt/sensors-host/host.py -t 58:bf:25:33:3f:16
+
+[Install]
+WantedBy=multi-user.target
