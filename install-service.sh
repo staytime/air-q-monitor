@@ -1,5 +1,5 @@
 
-
+sudo apt-get install -y libglib2.0-dev pip3
 pip3 install -r sensors-host/requirements.txt
 
 sudo cp -r sensors-host /opt/sensors-host
