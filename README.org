@@ -1,0 +1,51 @@
+#+TITLE: Air quality monitor
+#+DATE: <2022-10-24 Mon>
+#+Author: elliott
+#+EMAIL:staytimeby1964@gmail.com, elliott.syu@gmail.com
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
+
+*My project for tracking living room air quality.*
+
+Feature list
+1. Temperature & Humidity Tracking
+2. eCO2 (equivalent calculated carbon-dioxide) Tracking
+3. TVOC (Total Volatile Organic Compound)
+4. Air pressure
+5. PM2.5 (WIP)
+
+
+
+#+ATTR_ORG: :width 60%
+[[file:./assets/thumbnail.jpg]]
+
+
+* Installation
+#+begin_src bash
+  #! /usr/bin/bash
+  HOST_IP="<Host IP Address>"
+  bash ./install-service.sh
+  echo "$YOUR_IP air-sensor-1.local" | sudo tee /etc/hosts
+  docker compose up -d
+#+end_src
+
+Wait docker to deploy
+The Grafana Dashboard is now accessible via: http: //<Host IP Address>:3000
+
+#+begin_src
+username         => admin
+default password => 0v89kh83gvc3bfcupmto
+#+end_src
+
+(Password is stored in [[file:./grafana/config.monitoring][/grafana/config.monitoring]])
+
+
+
+* TODO list [0/2]
+- [ ] finish PM2.5
+- [ ] standlize Line notify
+
+* reference
+1. [[https://github.com/vegasbrianc/prometheus]]
+2. [[https://learn.adafruit.com/adafruit-ccs811-air-quality-sensor]]
