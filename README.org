@@ -14,6 +14,7 @@ Feature list
 3. TVOC (Total Volatile Organic Compound)
 4. Air pressure
 5. PM2.5 (WIP)
+6. Alerting when CO2 been too high
 
 
 
@@ -42,10 +43,13 @@ default password => 0v89kh83gvc3bfcupmto
 
 
 
-* TODO list [0/2]
+* TODO list [0/5]
+- [ ] adding README section for ESP32 firmware
+- [ ] adding Wire Diagram for ESP32
+- [ ] adding System diagram
 - [ ] finish PM2.5
-- [ ] standlize Line notify
+- [ ] prebuild alert in alertmanager
 
-* reference
+* Reference
 1. [[https://github.com/vegasbrianc/prometheus]]
 2. [[https://learn.adafruit.com/adafruit-ccs811-air-quality-sensor]]
