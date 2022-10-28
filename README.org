@@ -43,7 +43,7 @@ default password => 0v89kh83gvc3bfcupmto
 
 
 
-* TODO list [0/5]
+* TO DO list [0/5]
 - [ ] adding README section for ESP32 firmware
 - [ ] adding Wire Diagram for ESP32
 - [ ] adding System diagram
